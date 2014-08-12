@@ -9,4 +9,4 @@ Team:
 
 join us at #noobieteam on irc.esper.net and give us a shout
 
-- Fake
+Big hugs, -TNBT
