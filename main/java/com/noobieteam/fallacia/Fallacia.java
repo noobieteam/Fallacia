@@ -1,5 +1,6 @@
 package com.noobieteam.fallacia;
 
+import com.noobieteam.fallacia.init.ModBlocks;
 import com.noobieteam.fallacia.proxy.IProxy;
 import com.noobieteam.fallacia.reference.Reference;
 import cpw.mods.fml.common.Mod;
@@ -36,7 +37,7 @@ public class Fallacia {
      */
     @Mod.EventHandler
     public void preinit(FMLPreInitializationEvent event) {
-
+        ModBlocks.init();
     }
 
     /**
