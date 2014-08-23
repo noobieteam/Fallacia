@@ -22,10 +22,6 @@ import net.minecraft.block.Block;
  */
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION, guiFactory = Reference.GUI_FACTORY_CLASS)
 public class Fallacia {
-        public static Block fallaciaBlock = new FallaciaBlock();
-        public static Block magicalWood = new MagicalWood();
-        public static Block magicalSapling = new MagicalSapling();
-        public static Block magicalLeaves = new MagicalLeaves();
 
 }
     /**
@@ -50,18 +46,11 @@ public class Fallacia {
      */
     @EventHandler
     public void preinit(FMLPreInitializationEvent event) {
-        GameRegistry.registerBlock(fallaciaBlock, "Fallacia Block");
-        GameRegistry.registerBlock(magicalLeaves, "Magical Leaves");
-        GameRegistry.registerBlock(magicalWood, "Magical Wood");
-        GameRegistry.registerBlock(magicalSapling, "Magical Sapling");
-    }
 
     /**
      * Initialization of stuff!
      * Like recipes and event handlers
      * @param event
-     * 
-     * Registers Recipes for the blocks
      */
     @EventHandler
     public void init(FMLInitializationEvent event) {
