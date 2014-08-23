@@ -1,6 +1,7 @@
 package com.noobieteam.fallacia.block.tree;
 
 import com.noobieteam.fallacia.creativetab.CreativeTabFallacia;
+import com.noobieteam.fallacia.world.treegen.WorldGenMagicalTree;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -8,11 +9,14 @@ import net.minecraft.block.BlockBush;
 import net.minecraft.block.IGrowable;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraftforge.event.terraingen.TerrainGen;
 
 import java.util.List;
 import java.util.Random;
@@ -81,7 +85,42 @@ public class MagicalSapling extends BlockBush implements IGrowable {
      * @param random random number for the growth tick
      */
     public void func_149878_d(World world, int x, int y, int z, Random random) {
+        if (!TerrainGen.saplingGrowTree(world, random, x, y, z)) return;
+        int l = world.getBlockMetadata(x, y, z) & 7;
+        Object object = new WorldGenMagicalTree(true);
+        int i1 = 0;
+        int j1 = 0;
+        boolean flag = false;
 
+        Block block = Blocks.air;
+
+        if (flag) {
+            world.setBlock(x + i1, y, z + j1, block, 0, 4);
+            world.setBlock(x + i1 + 1, y, z + j1, block, 0, 4);
+            world.setBlock(x + i1, y, z + j1 + 1, block, 0, 4);
+            world.setBlock(x + i1 + 1, y, z + j1 + 1, block, 0, 4);
+        } else {
+            world.setBlock(x, y, z, block, 0, 4);
+        }
+
+        if (!((WorldGenerator) object).generate(world, random, x + i1, y, z + j1)) {
+            world.setBlock(x, y, z, this, l, 4);
+        }
+    }
+
+    /**
+     * Used if we would want a n by n number of sapplings placed on the world
+     * for the tree to grow
+     *
+     * @param world world
+     * @param x     x coordinate
+     * @param y     y coordinate
+     * @param z     z coordinate
+     * @param meta  target metadata
+     * @return boolean if found sappling with same metadata as target on the spot
+     */
+    public boolean checkStructure(World world, int x, int y, int z, int meta) {
+        return world.getBlock(x, y, z) == this && (world.getBlockMetadata(x, y, z) & 7) == meta;
     }
 
     /**
