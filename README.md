@@ -8,6 +8,7 @@ Team:
 - Fakegermano
 - Abob78
 - Yaoi
+- stevenh214 *EliteZerker*
 
 
 join us at #noobieteam on irc.esper.net and give us a shout
