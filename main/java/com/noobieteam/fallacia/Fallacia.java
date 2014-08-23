@@ -16,9 +16,6 @@ import net.minecraft.block.Block;
 /**
  * Main mod Class
  *
- * public class Fallacia makes the variables for the blocks so they can be registered
- * but block info and properites need ot be on the class files
- * (put in by Abob78)
  */
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION, guiFactory = Reference.GUI_FACTORY_CLASS)
 public class Fallacia {
@@ -42,7 +39,6 @@ public class Fallacia {
      * like Blocks, Items and Such
      * @param event
      * 
-     * Registers Blocks to the game (put in by Abob78)
      */
     @EventHandler
     public void preinit(FMLPreInitializationEvent event) {
