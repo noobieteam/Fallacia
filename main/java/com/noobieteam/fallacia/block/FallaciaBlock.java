@@ -22,9 +22,8 @@ public class FallaciaBlock extends Block {
     public FallaciaBlock(Material material) {
         super(material);
         this.setCreativeTab(CreativeTabFallacia.tabFallacia);
-        this.setTextureName("fallacia:FallaciaBlock");
-        this.setUnlocalizedName("fallaciaBlock");
-        
+        this.setBlockTextureName("fallacia:FallaciaBlock");
+        this.setBlockName("fallaciaBlock");
     }
 
     /**
