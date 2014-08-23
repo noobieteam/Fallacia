@@ -20,7 +20,7 @@ public class MagicalWood extends BlockLog {
     public MagicalWood() {
         super();
         this.setBlockName("magicalWood");
-        this.setTextureName("MagicalWood")://name of the texture in fallacia/assets/resources/MagicalWood.png
+        //this.setTextureName("MagicalWood");//name of the texture in fallacia/assets/resources/MagicalWood.png
     }
 
     /**
