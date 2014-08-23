@@ -2,6 +2,7 @@ package com.noobieteam.fallacia.creativetab;
 
 import com.noobieteam.fallacia.reference.Reference;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 
 public class CreativeTabFallacia {
