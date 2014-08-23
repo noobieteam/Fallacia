@@ -12,14 +12,17 @@ import cpw.mods.fml.common.registry.GameRegistry;
  */
 public class ModBlocks {
     // CREATE ALL MOD BLOCK's INSTANCES IN HERE
-    private static MagicalWood magicalWood = new MagicalWood();
-    private static MagicalLeaves magicalLeaves = new MagicalLeaves();
-    private static MagicalSapling magicalSapling = new MagicalSapling();
+        public static Block fallaciaBlock = new FallaciaBlock();
+        public static Block magicalWood = new MagicalWood();
+        public static Block magicalSapling = new MagicalSapling();
+        public static Block magicalLeaves = new MagicalLeaves();
 
     /**
      * Call all the GameRegistry.registerBlock in here..
      */
-    public static void init() {
+    @EventHandler
+    public void preinit(FMLPreInitializationEvent event) {
+        GameRegistry.registerBlock(fallaciaBlock, "fallaciaBlock");
         GameRegistry.registerBlock(magicalWood, "magicalWood");
         GameRegistry.registerBlock(magicalLeaves, "magicalLeaves");
         GameRegistry.registerBlock(magicalSapling, "magicalSapling");
