@@ -19,18 +19,12 @@ public class FallaciaBlock extends Block {
      * Constructor default for mod blocks
      * @param material
      */
-    protected FallaciaBlock(Material material) {
+    public FallaciaBlock(Material material) {
         super(material);
-        setCreativeTab(CreativeTabFallacia.tabFallacia);
-    }
-
-    /**
-     * Alternative constructor if you want to generate a block without passing
-     * the material.
-     */
-    protected FallaciaBlock() {
-        super(Material.rock);
-        setCreativeTab(CreativeTabFallacia.tabFallacia);
+        this.setCreativeTab(CreativeTabFallacia.tabFallacia);
+        this.setTextureName("fallacia:FallaciaBlock");
+        this.setUnlocalizedName("fallaciaBlock");
+        
     }
 
     /**
