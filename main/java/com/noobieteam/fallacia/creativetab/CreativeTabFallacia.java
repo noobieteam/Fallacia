@@ -7,12 +7,8 @@ import com.noobieteam.fallacia.init.ModBlocks;
 import com.noobieteam.fallacia.init.ModItems;
 import com.noobieteam.fallacia.item.FallaciaItem;
 import com.noobieteam.fallacia.reference.Reference;
-
 import net.minecraft.creativetab.CreativeTabs;
-<<<<<<< HEAD
 import net.minecraft.init.Blocks;
-=======
->>>>>>> origin/master
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 

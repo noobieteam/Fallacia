@@ -1,6 +1,5 @@
 package com.noobieteam.fallacia;
 
-import com.noobieteam.fallacia.init.ModBlocks;
 import com.noobieteam.fallacia.proxy.IProxy;
 import com.noobieteam.fallacia.reference.Reference;
 import cpw.mods.fml.common.Mod;
@@ -8,10 +7,6 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import scala.tools.nsc.backend.icode.TypeKinds;
-import com.noobieteam.fallacia.block.FallaciaBlock;
-import com.noobieteam.fallacia.block.tree;
-import net.minecraft.block.Block;
 
 /**
  * Main mod Class
@@ -19,8 +14,6 @@ import net.minecraft.block.Block;
  */
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION, guiFactory = Reference.GUI_FACTORY_CLASS)
 public class Fallacia {
-
-}
     /**
      * This registers a static instance of the mod's class. It is useful for
      * the proxy and gui stuff
@@ -40,16 +33,19 @@ public class Fallacia {
      * @param event
      * 
      */
-    @EventHandler
+    @Mod.EventHandler
     public void preinit(FMLPreInitializationEvent event) {
+    }
 
     /**
      * Initialization of stuff!
      * Like recipes and event handlers
      * @param event
      */
-    @EventHandler
+    @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
+
+    }
 
 
     /**
@@ -57,7 +53,7 @@ public class Fallacia {
      * like loggin and such (dont really know =P)
      * @param event
      */
-    @EventHandler
+    @Mod.EventHandler
     public void postinit(FMLPostInitializationEvent event) {
 
     }
