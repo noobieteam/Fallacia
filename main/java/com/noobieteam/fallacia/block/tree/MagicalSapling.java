@@ -76,7 +76,6 @@ public class MagicalSapling extends BlockBush implements IGrowable {
 
     /**
      * This function is responsable for the world-gen of the tree.
-     * Steve, please change this stuff to work to our thing... i'm gonna leave it blank for now...
      *
      * @param world  world
      * @param x      x coordinate
@@ -92,6 +91,28 @@ public class MagicalSapling extends BlockBush implements IGrowable {
         int j1 = 0;
         boolean flag = false;
 
+        switch (l) {
+            default:
+            case 0:
+                break;
+            case 1:
+                /*
+                Block that searches for multiple sapplings beside each other for big trees
+                will be in here.. since we dont have big trees it's not here =P
+                sets the flag to true if found many sapplings beside each other
+                 */
+                if (!flag) {
+                    i1 = 0;
+                    j1 = 0;
+                    object = new WorldGenMagicalTree();
+                }
+                break;
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+                break;
+        }
         Block block = Blocks.air;
 
         if (flag) {
