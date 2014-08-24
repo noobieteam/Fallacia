@@ -13,7 +13,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class Recipes {
     @EventHandler
     public void init(FMLInitializationEvent event) {
-        GameRegistry.addRecipe(new ItemStack(fallaciaBlock), new Object[]{
+        /*GameRegistry.addRecipe(new ItemStack(fallaciaBlock), new Object[]{
             "y y",//Must be in the correct format: a 3x3 grid for the crafting table
     		"xyx",
     		"y y",

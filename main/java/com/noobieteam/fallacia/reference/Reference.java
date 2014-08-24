@@ -3,7 +3,6 @@ package com.noobieteam.fallacia.reference;
 /**
  * Main reference class, it is the place where we put text that will be repeated on the code
  */
-@Mod
 public class Reference {
     public static final String MOD_ID = "fallacia";
     public static final String MOD_NAME = "Fallacia";
