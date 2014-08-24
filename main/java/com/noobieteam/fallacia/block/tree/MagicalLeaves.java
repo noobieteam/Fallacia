@@ -1,5 +1,6 @@
 package com.noobieteam.fallacia.block.tree;
 
+import com.noobieteam.fallacia.utility.LogHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockLeaves;
