@@ -1,5 +1,11 @@
 package com.noobieteam.fallacia.init;
 
+import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
+import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.registry.GameRegistry;
+
 /**
  * Main Initializers for the mod's recipes
  * Registers them..
@@ -33,3 +39,4 @@ public class Recipes {
     		'y', Blocks.obsidian, 'x', new ItemStack(Blocks.stained_glass, 1, 9) 
     	});   
     }
+}

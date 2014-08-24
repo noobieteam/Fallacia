@@ -87,7 +87,7 @@ public class MagicalSapling extends BlockBush implements IGrowable {
     public void func_149878_d(World world, int x, int y, int z, Random random) {
         if (!TerrainGen.saplingGrowTree(world, random, x, y, z)) return;
         int l = world.getBlockMetadata(x, y, z) & 7;
-        Object object = new WorldGenMagicalTree(true);
+        Object object = new WorldGenMagicalTree();
         int i1 = 0;
         int j1 = 0;
         boolean flag = false;

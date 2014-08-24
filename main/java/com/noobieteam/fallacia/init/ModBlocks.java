@@ -26,7 +26,7 @@ public class ModBlocks {
      * Call all the GameRegistry.registerBlock in here..
      */
     @Mod.EventHandler
-    public void preinit(FMLPreInitializationEvent event) {
+    public static void preinit(FMLPreInitializationEvent event) {
         GameRegistry.registerBlock(fallaciaBlock, "fallaciaBlock");
         GameRegistry.registerBlock(magicalWood, "magicalWood");
         GameRegistry.registerBlock(magicalLeaves, "magicalLeaves");
