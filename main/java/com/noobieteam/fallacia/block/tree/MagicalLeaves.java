@@ -19,7 +19,7 @@ public class MagicalLeaves extends BlockLeaves {
 
     public MagicalLeaves() {
         super();
-        setBlockName("magicalLeaves");
+        this.setBlockName("magicalLeaves");
         this.setTextureName("MagicalLeaves")//file is Fallacia.main/resources/assets/fallacia/blocks/MagicalLeaves.png
     }
 
