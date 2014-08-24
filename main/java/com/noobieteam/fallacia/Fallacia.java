@@ -6,7 +6,6 @@ import com.noobieteam.fallacia.init.ModBiomes;
 import com.noobieteam.fallacia.init.ModBlocks;
 import com.noobieteam.fallacia.proxy.IProxy;
 import com.noobieteam.fallacia.reference.Reference;
-import com.noobieteam.fallacia.world.treegen.TreeManager;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
