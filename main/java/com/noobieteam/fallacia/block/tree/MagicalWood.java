@@ -1,5 +1,6 @@
 package com.noobieteam.fallacia.block.tree;
 
+import com.noobieteam.fallacia.creativetab.CreativeTabFallacia;
 import com.noobieteam.fallacia.reference.Reference;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -15,12 +16,12 @@ import java.util.List;
 
 public class MagicalWood extends BlockLog {
 
-    public static final String[] types = new String[]{"magicalwood"};
+    public static final String[] types = new String[]{"magical"};
 
     public MagicalWood() {
         super();
         this.setBlockName("magicalWood");
-        //this.setTextureName("MagicalWood");//name of the texture in fallacia/assets/resources/MagicalWood.png
+        setCreativeTab(CreativeTabFallacia.tabFallacia);
     }
 
     /**
@@ -62,10 +63,8 @@ public class MagicalWood extends BlockLog {
         this.field_150166_b = new IIcon[types.length];
 
         for (int i = 0; i < types.length; i++) {
-            this.field_150167_a[i] = iconRegister.registerIcon(String.format("%s",
-                    getUnwrappedUnlocalizedName(this.getUnlocalizedName())));
-            this.field_150166_b[i] = iconRegister.registerIcon(String.format("%s_top",
-                    getUnwrappedUnlocalizedName(this.getUnlocalizedName())));
+            this.field_150167_a[i] = iconRegister.registerIcon("fallacia:log_" + types[i]);
+            this.field_150166_b[i] = iconRegister.registerIcon("fallacia:log_" + types[i] + "_top");
         }
     }
 

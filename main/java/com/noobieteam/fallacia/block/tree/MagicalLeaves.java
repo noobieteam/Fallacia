@@ -1,5 +1,6 @@
 package com.noobieteam.fallacia.block.tree;
 
+import com.noobieteam.fallacia.creativetab.CreativeTabFallacia;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockLeaves;
@@ -19,6 +20,7 @@ public class MagicalLeaves extends BlockLeaves {
     public MagicalLeaves() {
         super();
         setBlockName("magicalLeaves");
+        setCreativeTab(CreativeTabFallacia.tabFallacia);
     }
 
     public static final String[][] typeTypes = new String[][]{

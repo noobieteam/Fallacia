@@ -101,7 +101,7 @@ public class MagicalSapling extends BlockBush implements IGrowable {
 
     /**
      * Registers the icons for the sappling
-     *
+     * format:  fallacia:blockName.name
      * @param iconRegister icon registerer
      */
     @SideOnly(Side.CLIENT)
