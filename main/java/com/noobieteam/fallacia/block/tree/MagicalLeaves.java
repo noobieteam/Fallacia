@@ -58,7 +58,7 @@ public class MagicalLeaves extends BlockLeaves {
      */
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta) {
-        return (meta & 3) == 1 ? this.field_150129_M[this.field_150127_b][1] : this.field_150129_M[this.field_150127_b][0];
+        return (meta) == 1 ? this.field_150129_M[this.field_150127_b][1] : this.field_150129_M[this.field_150127_b][0];
     }
 
     /**
