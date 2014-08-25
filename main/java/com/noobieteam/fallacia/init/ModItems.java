@@ -6,7 +6,6 @@ package com.noobieteam.fallacia.init;
  */
 public class ModItems {
     // CREATE ALL MOD ITEMS INSTANCES ON HERE
-
     /**
      * Call all the GameRegistry.registerItem in here
      */
