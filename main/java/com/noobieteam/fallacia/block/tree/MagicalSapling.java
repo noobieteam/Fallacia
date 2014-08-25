@@ -1,6 +1,8 @@
 package com.noobieteam.fallacia.block.tree;
 
 import com.noobieteam.fallacia.creativetab.CreativeTabFallacia;
+import com.noobieteam.fallacia.reference.Reference;
+import com.noobieteam.fallacia.utility.LogHelper;
 import com.noobieteam.fallacia.world.treegen.WorldGenMagicalTree;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -27,7 +29,7 @@ public class MagicalSapling extends BlockBush implements IGrowable {
      * textureNames is a vector that holds all different types of wood the mod have
      * In this case: one
      */
-    public static final String[] textureNames = new String[]{"magicalWood"};
+    public static final String[] textureNames = new String[]{"magical"};
     /**
      * icons holds the Icons for the types of wood.
      */
@@ -168,8 +170,7 @@ public class MagicalSapling extends BlockBush implements IGrowable {
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister) {
         for (int i = 0; i < icons.length; ++i) {
-            icons[i] = iconRegister.registerIcon(String.format("%s",
-                    getUnwrappedUnlocalizedName(this.getUnlocalizedName())));
+            icons[i] = iconRegister.registerIcon("fallacia:sapling_" + textureNames[i]);
         }
     }
 
@@ -217,6 +218,19 @@ public class MagicalSapling extends BlockBush implements IGrowable {
         this.func_149879_c(world, x, y, z, random);
     }
 
+
+    /**
+     * reformats the unlocalized name for the mod blocks...
+     * the regex is:
+     * Helps with the localization
+     *
+     * @return tile.fallacia:magicalWood.name
+     */
+    @Override
+    public String getUnlocalizedName() {
+        return String.format("tile.%s%s", Reference.MOD_ID.toLowerCase() + ":",
+                getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
+    }
     /**
      * Helper method for the formatting.
      *

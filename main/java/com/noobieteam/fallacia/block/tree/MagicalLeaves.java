@@ -1,5 +1,7 @@
 package com.noobieteam.fallacia.block.tree;
 
+import com.noobieteam.fallacia.creativetab.CreativeTabFallacia;
+import com.noobieteam.fallacia.reference.Reference;
 import com.noobieteam.fallacia.utility.LogHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -20,12 +22,15 @@ public class MagicalLeaves extends BlockLeaves {
     public MagicalLeaves() {
         super();
         this.setBlockName("magicalLeaves");
-        setBlockTextureName("MagicalLeaves");//file is Fallacia.main/resources/assets/fallacia/blocks/MagicalLeaves.png
+        setCreativeTab(CreativeTabFallacia.tabFallacia);
     }
 
+    /**
+     * This is the right way to set textures on leaves.. it's a multi texture block...
+     */
     public static final String[][] typeTypes = new String[][]{
-            {"leaves_magicalWood"}, {"leaves_magicalWood_opaque"}};
-    public static final String[] types = new String[]{"magicalWood"};
+            {"magical"}, {"magical_opaque"}};
+    public static final String[] types = new String[]{"magical"};
 
     protected void func_150124_c(World world, int x, int y, int z, int var1, int var2) {
         if ((var1 & 3) == 1 && world.rand.nextInt(var2) == 0) {
@@ -72,8 +77,7 @@ public class MagicalLeaves extends BlockLeaves {
             this.field_150129_M[i] = new IIcon[typeTypes[i].length];
 
             for (int j = 0; j < typeTypes[i].length; ++j) {
-                this.field_150129_M[i][j] = iconRegister.registerIcon(String.format("%s",
-                        getUnwrappedUnlocalizedName(this.getUnlocalizedName())));
+                this.field_150129_M[i][j] = iconRegister.registerIcon("fallacia:leaves_" + typeTypes[i][j]);
             }
         }
     }
@@ -83,6 +87,19 @@ public class MagicalLeaves extends BlockLeaves {
         return types;
     }
 
+
+    /**
+     * reformats the unlocalized name for the mod blocks...
+     * the regex is:
+     * Helps with the localization
+     *
+     * @return tile.fallacia:magicalWood.name
+     */
+    @Override
+    public String getUnlocalizedName() {
+        return String.format("tile.%s%s", Reference.MOD_ID.toLowerCase() + ":",
+                getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
+    }
     /**
      * Helper method for the formatting.
      *
