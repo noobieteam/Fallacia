@@ -52,7 +52,7 @@ public class WorldGenMagicalTree extends WorldGenAbstractTree {
 			
 			for (int i = 0; i < baselength; i++)
 			{
-				buildBlock(world, x, y + h, z, ModBlocks.magicalWood, 0);
+				buildBlock(world, x, y + h, z, ModBlocks.blockLog, 0);
 				h++;
 			}
 			
@@ -75,17 +75,17 @@ public class WorldGenMagicalTree extends WorldGenAbstractTree {
 		{
 			for (int j = -1; j < 2; j++)
 			{
-				buildBlock(world, x + i, y, z + j, ModBlocks.magicalLeaves, 0);
+				buildBlock(world, x + i, y, z + j, ModBlocks.blockleaf, 0);
 			}
 		}
 		
-		buildBlock(world, x, y, z, ModBlocks.magicalWood, 0);
-		buildBlock(world, x, y+1, z, ModBlocks.magicalLeaves, 0);
-		buildBlock(world, x+1, y+1, z, ModBlocks.magicalLeaves, 0);
-		buildBlock(world, x-1, y+1, z, ModBlocks.magicalLeaves, 0);
-		buildBlock(world, x, y+1, z-1, ModBlocks.magicalLeaves, 0);
-		buildBlock(world, x, y+1, z+1, ModBlocks.magicalLeaves, 0);
-		buildBlock(world, x, y+2, z, ModBlocks.magicalLeaves, 0);
+		buildBlock(world, x, y, z, ModBlocks.blockLog, 0);
+		buildBlock(world, x, y+1, z, ModBlocks.blockLog, 0);
+		buildBlock(world, x+1, y+1, z, ModBlocks.blockleaf, 0);
+		buildBlock(world, x-1, y+1, z, ModBlocks.blockleaf, 0);
+		buildBlock(world, x, y+1, z-1, ModBlocks.blockleaf, 0);
+		buildBlock(world, x, y+1, z+1, ModBlocks.blockleaf, 0);
+		buildBlock(world, x, y+2, z, ModBlocks.blockleaf, 0);
 
 
 		
@@ -97,15 +97,15 @@ public class WorldGenMagicalTree extends WorldGenAbstractTree {
 		{
 			for (int j = -1; j < 2; j++)
 			{
-				buildBlock(world, x + i, y, z + j, ModBlocks.magicalLeaves, 1);
+				buildBlock(world, x + i, y, z + j, ModBlocks.blockleaf, 0);
 			}
 		}
-		buildBlock(world, x+1, y+1, z, ModBlocks.magicalLeaves, 0);
-		buildBlock(world, x-1, y+1, z, ModBlocks.magicalLeaves, 0);
-		buildBlock(world, x, y+1, z-1, ModBlocks.magicalLeaves, 0);
-		buildBlock(world, x, y+1, z+1, ModBlocks.magicalLeaves, 0);
-		buildBlock(world, x, y, z, ModBlocks.magicalLeaves, 0);
-		buildBlock(world, x, y+1, z, ModBlocks.magicalLeaves, 0);
+		buildBlock(world, x+1, y+1, z, ModBlocks.blockleaf, 0);
+		buildBlock(world, x-1, y+1, z, ModBlocks.blockleaf, 0);
+		buildBlock(world, x, y+1, z-1, ModBlocks.blockleaf, 0);
+		buildBlock(world, x, y+1, z+1, ModBlocks.blockleaf, 0);
+		buildBlock(world, x, y, z, ModBlocks.blockLog, 0);
+		buildBlock(world, x, y+1, z, ModBlocks.blockLog, 0);
 	}
 	
 	public void buildBlock(World world, int x, int y, int z, Block block, int meta)

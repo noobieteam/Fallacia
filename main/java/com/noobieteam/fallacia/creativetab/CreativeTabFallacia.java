@@ -2,7 +2,6 @@ package com.noobieteam.fallacia.creativetab;
 
 import com.noobieteam.fallacia.Fallacia;
 import com.noobieteam.fallacia.block.FallaciaBlock;
-import com.noobieteam.fallacia.block.tree.MagicalWood;
 import com.noobieteam.fallacia.init.ModBlocks;
 import com.noobieteam.fallacia.init.ModItems;
 import com.noobieteam.fallacia.item.FallaciaItem;

@@ -1,1 +1,9 @@
 # Testing some stuff.
+
+tile.Log.Magical.name=Magical Log
+tile.Log.Golem.name=Golem Log
+tile.Log.Troll.name=Troll Log
+
+tile.Leaf.Magical.name=Magical Leaf
+tile.Leaf.Golem.name=Golem Leaf
+tile.Leaf.Troll.name=Troll Leaf
