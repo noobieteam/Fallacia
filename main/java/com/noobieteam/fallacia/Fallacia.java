@@ -1,10 +1,16 @@
 package com.noobieteam.fallacia;
 
+import net.minecraftforge.event.world.ChunkDataEvent.Load;
+
+import com.noobieteam.fallacia.init.ModBiomes;
+import com.noobieteam.fallacia.init.ModBlocks;
 import com.noobieteam.fallacia.proxy.IProxy;
 import com.noobieteam.fallacia.reference.Reference;
+
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLLoadEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -36,6 +42,13 @@ public class Fallacia {
      */
     @Mod.EventHandler
     public void preinit(FMLPreInitializationEvent event) {
+    	ModBlocks.preinit(event);
+    	ModBiomes.init();
+    }
+    
+    public void load(FMLLoadEvent event)
+    {
+    	ModBiomes.load();
     }
 
     /**

@@ -2,9 +2,13 @@ package com.noobieteam.fallacia.init;
 
 
 import com.noobieteam.fallacia.block.FallaciaBlock;
-import com.noobieteam.fallacia.block.tree.MagicalLeaves;
-import com.noobieteam.fallacia.block.tree.MagicalSapling;
-import com.noobieteam.fallacia.block.tree.MagicalWood;
+import com.noobieteam.fallacia.block.tree.FLeaf;
+import com.noobieteam.fallacia.block.tree.FLog;
+import com.noobieteam.fallacia.block.tree.FSapling;
+import com.noobieteam.fallacia.item.ItemLeafBlocks;
+import com.noobieteam.fallacia.item.ItemLogBlocks;
+import com.noobieteam.fallacia.item.ItemSaplingBlocks;
+
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -18,18 +22,30 @@ import net.minecraft.block.material.Material;
 public class ModBlocks {
     // CREATE ALL MOD BLOCK's INSTANCES IN HERE
     public static Block fallaciaBlock = new FallaciaBlock(Material.rock);
-        public static Block magicalWood = new MagicalWood();
-        public static Block magicalSapling = new MagicalSapling();
-        public static Block magicalLeaves = new MagicalLeaves();
+
+    //Tree
+    public static Block blockLog = new FLog("Log");
+
+    //Leafs
+    public static Block blockleaf = new FLeaf("Leaf");
+
+    //Saplings
+    public static Block blockSapling = new FSapling("Sapling");
 
     /**
      * Call all the GameRegistry.registerBlock in here..
      */
     @Mod.EventHandler
-    public void preinit(FMLPreInitializationEvent event) {
+    public static void preinit(FMLPreInitializationEvent event) {
         GameRegistry.registerBlock(fallaciaBlock, "fallaciaBlock");
-        GameRegistry.registerBlock(magicalWood, "magicalWood");
-        GameRegistry.registerBlock(magicalLeaves, "magicalLeaves");
-        GameRegistry.registerBlock(magicalSapling, "magicalSapling");
+
+        //Tree
+        GameRegistry.registerBlock(blockLog, ItemLogBlocks.class, blockLog.getUnlocalizedName().substring(5));
+
+        //Leafs
+        GameRegistry.registerBlock(blockleaf, ItemLeafBlocks.class, blockleaf.getUnlocalizedName().substring(5));
+
+        //Saplings
+        GameRegistry.registerBlock(blockSapling, ItemSaplingBlocks.class, blockSapling.getUnlocalizedName().substring(5));
     }
 }
