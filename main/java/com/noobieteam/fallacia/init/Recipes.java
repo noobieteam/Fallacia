@@ -1,17 +1,14 @@
 package com.noobieteam.fallacia.init;
 
-import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
-import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.registry.GameRegistry;
 
 /**
  * Main Initializers for the mod's recipes
  * Registers them..
  */
 public class Recipes {
-    @EventHandler
+    @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
         /*GameRegistry.addRecipe(new ItemStack(fallaciaBlock), new Object[]{
             "y y",//Must be in the correct format: a 3x3 grid for the crafting table

@@ -30,28 +30,26 @@ import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class FSapling extends BlockSapling {
-	
-	public static final String[] saplings = new String[] {"Magical", "Golem", "Troll"};
+
+    public static final String[] saplings = new String[]{"Magical", "Golem", "Troll"};
     private static final IIcon[] iconLength = new IIcon[saplings.length];
 
-    public FSapling()
-    {
+    public FSapling(String name) {
         float f = 0.4F;
         this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 2.0F, 0.5F + f);
         this.setCreativeTab(CreativeTabFallacia.tabFallacia);
+        setBlockName(name);
+        this.setStepSound(Block.soundTypeGrass);
     }
 
     /**
      * Ticks the block if it's been scheduled
      */
-    public void updateTick(World world, int x, int y, int z, Random random)
-    {
-        if (!world.isRemote)
-        {
+    public void updateTick(World world, int x, int y, int z, Random random) {
+        if (!world.isRemote) {
             super.updateTick(world, x, y, z, random);
 
-            if (world.getBlockLightValue(x, y + 1, z) >= 9 && random.nextInt(7) == 0)
-            {
+            if (world.getBlockLightValue(x, y + 1, z) >= 9 && random.nextInt(7) == 0) {
                 this.func_149879_c(world, x, y, z, random);
             }
         }
@@ -61,29 +59,23 @@ public class FSapling extends BlockSapling {
      * Gets the block's texture. Args: side, meta
      */
     @SideOnly(Side.CLIENT)
-    public IIcon getIcon(int side, int meta)
-    {
+    public IIcon getIcon(int side, int meta) {
         meta &= 7;
         return iconLength[MathHelper.clamp_int(meta, 0, 5)];
     }
 
-    public void func_149879_c(World world, int x, int y, int z, Random random)
-    {
+    public void func_149879_c(World world, int x, int y, int z, Random random) {
         int l = world.getBlockMetadata(x, y, z);
 
-        if ((l & 8) == 0)
-        {
-        	world.setBlockMetadataWithNotify(x, y, z, l | 8, 4);
-        }
-        else
-        {
+        if ((l & 8) == 0) {
+            world.setBlockMetadataWithNotify(x, y, z, l | 8, 4);
+        } else {
             this.func_149878_d(world, x, y, z, random);
         }
     }
-    
+
     //GrowTree
-    public void func_149878_d(World world, int x, int y, int z, Random random)
-    {
+    public void func_149878_d(World world, int x, int y, int z, Random random) {
         if (!net.minecraftforge.event.terraingen.TerrainGen.saplingGrowTree(world, random, x, y, z)) return;
         int l = world.getBlockMetadata(x, y, z) & 7;
         Object object = random.nextInt(10) == 0 ? new WorldGenBigTree(true) : new WorldGenTrees(true);
@@ -91,11 +83,10 @@ public class FSapling extends BlockSapling {
         int j1 = 0;
         boolean flag = false;
 
-        switch (l)
-        {
+        switch (l) {
             case 0:
-            	object = new WorldGenMagicalTree();
-            	break;
+                object = new WorldGenMagicalTree();
+                break;
             case 1:
                 break;
             case 2:
@@ -105,52 +96,43 @@ public class FSapling extends BlockSapling {
             case 4:
                 break;
             case 5:
-            	break;
+                break;
             default:
                 break;
         }
 
         Block block = Blocks.air;
 
-        if (flag)
-        {
-        	world.setBlock(x + i1, y, z + j1, block, 0, 4);
-        	world.setBlock(x + i1 + 1, y, z + j1, block, 0, 4);
-        	world.setBlock(x + i1, y, z + j1 + 1, block, 0, 4);
-        	world.setBlock(x + i1 + 1, y, z + j1 + 1, block, 0, 4);
-        }
-        else
-        {
-        	world.setBlock(x, y, z, block, 0, 4);
+        if (flag) {
+            world.setBlock(x + i1, y, z + j1, block, 0, 4);
+            world.setBlock(x + i1 + 1, y, z + j1, block, 0, 4);
+            world.setBlock(x + i1, y, z + j1 + 1, block, 0, 4);
+            world.setBlock(x + i1 + 1, y, z + j1 + 1, block, 0, 4);
+        } else {
+            world.setBlock(x, y, z, block, 0, 4);
         }
 
-        if (!((WorldGenerator)object).generate(world, random, x + i1, y, z + j1))
-        {
-            if (flag)
-            {
-            	world.setBlock(x + i1, y, z + j1, this, l, 4);
-            	world.setBlock(x + i1 + 1, y, z + j1, this, l, 4);
-            	world.setBlock(x + i1, y, z + j1 + 1, this, l, 4);
-            	world.setBlock(x + i1 + 1, y, z + j1 + 1, this, l, 4);
-            }
-            else
-            {
-            	world.setBlock(x, y, z, this, l, 4);
+        if (!((WorldGenerator) object).generate(world, random, x + i1, y, z + j1)) {
+            if (flag) {
+                world.setBlock(x + i1, y, z + j1, this, l, 4);
+                world.setBlock(x + i1 + 1, y, z + j1, this, l, 4);
+                world.setBlock(x + i1, y, z + j1 + 1, this, l, 4);
+                world.setBlock(x + i1 + 1, y, z + j1 + 1, this, l, 4);
+            } else {
+                world.setBlock(x, y, z, this, l, 4);
             }
         }
     }
 
     //isSameSapling
-    public boolean func_149880_a(World world, int x, int y, int z, int par1)
-    {
+    public boolean func_149880_a(World world, int x, int y, int z, int par1) {
         return world.getBlock(x, y, z) == this && (world.getBlockMetadata(x, y, z) & 7) == par1;
     }
 
     /**
      * Determines the damage on the item the block drops. Used in cloth and wood.
      */
-    public int damageDropped(int p_149692_1_)
-    {
+    public int damageDropped(int p_149692_1_) {
         return MathHelper.clamp_int(p_149692_1_ & 7, 0, 5);
     }
 
@@ -158,35 +140,28 @@ public class FSapling extends BlockSapling {
      * returns a list of blocks with the same ID, but different meta (eg: wood returns 4 blocks)
      */
     @SideOnly(Side.CLIENT)
-    public void getSubBlocks(Item item, CreativeTabs tab, List list)
-    {
-    	for (int i = 0; i < saplings.length; i++)
-		{
-			list.add(new ItemStack(item, 1, i));
-		}
-    }
-
-    @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister iconRegister)
-    {
-        for (int i = 0; i < iconLength.length; ++i)
-        {
-        	iconLength[i] = iconRegister.registerIcon(Reference.MOD_ID + ":" + this.getUnlocalizedName().substring(5) + saplings[i]);
+    public void getSubBlocks(Item item, CreativeTabs tab, List list) {
+        for (int i = 0; i < saplings.length; i++) {
+            list.add(new ItemStack(item, 1, i));
         }
     }
 
-    public boolean func_149851_a(World p_149851_1_, int p_149851_2_, int p_149851_3_, int p_149851_4_, boolean p_149851_5_)
-    {
+    @SideOnly(Side.CLIENT)
+    public void registerBlockIcons(IIconRegister iconRegister) {
+        for (int i = 0; i < iconLength.length; ++i) {
+            iconLength[i] = iconRegister.registerIcon(Reference.MOD_ID + ":" + this.getUnlocalizedName().substring(5) + saplings[i]);
+        }
+    }
+
+    public boolean func_149851_a(World p_149851_1_, int p_149851_2_, int p_149851_3_, int p_149851_4_, boolean p_149851_5_) {
         return true;
     }
 
-    public boolean func_149852_a(World p_149852_1_, Random p_149852_2_, int p_149852_3_, int p_149852_4_, int p_149852_5_)
-    {
-        return (double)p_149852_1_.rand.nextFloat() < 0.45D;
+    public boolean func_149852_a(World p_149852_1_, Random p_149852_2_, int p_149852_3_, int p_149852_4_, int p_149852_5_) {
+        return (double) p_149852_1_.rand.nextFloat() < 0.45D;
     }
 
-    public void func_149853_b(World p_149853_1_, Random p_149853_2_, int p_149853_3_, int p_149853_4_, int p_149853_5_)
-    {
+    public void func_149853_b(World p_149853_1_, Random p_149853_2_, int p_149853_3_, int p_149853_4_, int p_149853_5_) {
         this.func_149879_c(p_149853_1_, p_149853_3_, p_149853_4_, p_149853_5_, p_149853_2_);
     }
 
