@@ -18,7 +18,7 @@ public class CreativeTabFallacia {
     public static final CreativeTabs tabFallacia = new CreativeTabs(Reference.MOD_ID.toLowerCase()) {
         @Override
         public Item getTabIconItem() {
-            return Items.emerald;
+            return Items.FallaciaItem;
         }
     };
 }
